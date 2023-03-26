@@ -1,0 +1,87 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: black;
+}
+.wrapper {
+  max-width: 420px;
+  min-height: 96vh;
+  margin: 0 auto;
+}
+
+button {
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+.modifiers button {
+  background-color: #ccc;
+}
+.operations button {
+  background-color: orange;
+  width: 100px;
+}
+.digits button {
+  background-color: #efefef;
+}
+
+/* All things Grid, Flexbox, Box Alignment */
+.wrapper,
+.subgrid {
+  display: grid;
+}
+.wrapper {
+  grid-template-areas:
+    "total total total total"
+    "modif modif modif oper"
+    "digit digit digit oper"
+    "digit digit digit oper"
+    "digit digit digit oper"
+    "digit digit digit oper";
+  grid-auto-columns: 1fr;
+}
+.show-input {
+  grid-area: total;
+}
+.modifiers {
+  grid-area: modif;
+}
+.operations {
+  grid-area: oper;
+  gap: 10px;
+}
+.digits {
+  grid-area: digit;
+  gap: 10px;
+  margin-right: 10px;
+}
+
+.show-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.modifiers {
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.digits {
+  display: flex;
+  flex-wrap: wrap;
+}
+.digits button {
+  flex: 1 0 26%;
+}
